@@ -1,0 +1,58 @@
+<app-header></app-header>
+<div class="margin-260">
+  <div class="filter">
+    <h2 class="fw-bold m-0">View Book</h2>
+    <div>
+      <svg xmlns="http://www.w3.org/2000/svg" width="1.7em" height="1.7em" viewBox="0 0 24 24">
+        <path fill="currentColor"
+          d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5A6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5S14 7.01 14 9.5S11.99 14 9.5 14" />
+      </svg>
+      <button style="background-color: #4472C4 !important;"
+        class="mx-3 btn btn-primary">Export</button>
+    </div>
+  </div>
+  <div class="table-container">
+    <mat-table #matTable [dataSource]="dataSource" matSort>
+
+      <ng-container matColumnDef="bookName">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Book Name</mat-header-cell>
+        <mat-cell *matCellDef="let book" data-label="Book Name">{{ book.bookName }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="author">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Author</mat-header-cell>
+        <mat-cell *matCellDef="let book" data-label="Author">{{ book.author }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="publication">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Publication</mat-header-cell>
+        <mat-cell *matCellDef="let book" data-label="Publication">{{ book.publication }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="qty">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Qty</mat-header-cell>
+        <mat-cell *matCellDef="let book" data-label="Qty">{{ book.qty }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="price">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Price (Rs)</mat-header-cell>
+        <mat-cell *matCellDef="let book" data-label="Price">{{ book.price }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="branch">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Branch</mat-header-cell>
+        <mat-cell *matCellDef="let book" data-label="Branch">{{ book.branch }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="details">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Details</mat-header-cell>
+        <mat-cell *matCellDef="let book" data-label="Details">{{ book.details }}</mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+
+    <mat-paginator [pageSizeOptions]="[10, 25, 50]" showFirstLastButtons></mat-paginator>
+  </div>
+</div>

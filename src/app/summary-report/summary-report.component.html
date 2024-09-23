@@ -1,0 +1,62 @@
+  <div class="table-container">
+    <mat-table #matTable [dataSource]="dataSource" matSort>
+      <ng-container matColumnDef="vessel">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Vessel</mat-header-cell>
+        <mat-cell *matCellDef="let element" data-label="ISBN">{{ element.vessel }}</mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="repoType">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Report Type</mat-header-cell>
+        <mat-cell *matCellDef="let element" data-label="Book Name">{{ element.repoType }}</mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="refNo">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Reference No</mat-header-cell>
+        <mat-cell *matCellDef="let element" data-label="Author">{{ element.refNo }}</mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="action">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Action</mat-header-cell>
+        <mat-cell *matCellDef="let element" data-label="Roll Number">{{ element.action }}</mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="descr">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Action Description</mat-header-cell>
+        <mat-cell *matCellDef="let element" data-label="Name">{{ element.descr }}</mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="raisedOn">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Raised On</mat-header-cell>
+        <mat-cell *matCellDef="let element" data-label="Issued On">{{ element.raisedOn }}</mat-cell>
+      </ng-container>
+  
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  
+    <mat-paginator [pageSizeOptions]="[10, 25, 50]" showFirstLastButtons></mat-paginator>
+  </div>
+  
+        <div *ngIf="nodatafound" class="no-data-message">
+      <i class="fa-solid fa-file-circle-exclamation"></i>
+      <p class="msg">No data found</p>
+    </div>
+    <div class="filterss">
+      <p>Filter By</p>
+      <div class="mx-2">
+        <input type="radio" id="high" checked name="priority" value="high">
+        <label for="high">High</label>
+      </div>
+     
+      <div class="mx-2"> 
+        <input type="radio" id="medium" name="priority" value="medium">
+        <label for="medium">Medium</label>
+      </div>
+     <div class="mx-2">
+      <input type="radio" id="low" name="priority" value="low">
+      <label for="low">Low</label>
+     </div>
+      
+     
+    </div>
+    

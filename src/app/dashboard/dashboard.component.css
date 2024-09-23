@@ -1,0 +1,39 @@
+.input-group{
+    border: 1px solid #ccc;
+    border-radius: 2px;
+
+}
+.input-group span {
+    padding: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    border-right: 1px solid #ccc;
+}
+.breadcrumb {
+    margin: 0;
+}
+.cross-through {
+    position: relative;
+    display: inline-block; 
+    padding: 10px;
+    width: 100%;
+  }
+  
+  .cross-through::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 2px; 
+    background-color: rgba(0, 0, 0, 0.2); 
+    z-index: -1; 
+  }
+  footer {
+    color: #252525;
+    background-color: #fff;
+    padding: 6px;
+    margin-left: 80px;
+    border-top:1px solid #ccc;
+  }
+  

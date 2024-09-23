@@ -1,0 +1,55 @@
+<app-header></app-header>
+
+<div class="margin-260">
+  <div class="filter">
+    <h2 class="fw-bold m-0">Delete Book</h2>
+    <div>
+      <button class="mx-3 btn btn-primary">Export</button>
+    </div>
+  </div>
+  <div class="table-container">
+    <mat-table #matTable [dataSource]="dataSource" matSort>
+      <ng-container matColumnDef="bookName">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Book Name</mat-header-cell>
+        <mat-cell *matCellDef="let book">{{ book.bookName }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="author">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Author</mat-header-cell>
+        <mat-cell *matCellDef="let book">{{ book.author }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="publication">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Publication</mat-header-cell>
+        <mat-cell *matCellDef="let book">{{ book.publication }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="qty">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Qty</mat-header-cell>
+        <mat-cell *matCellDef="let book">{{ book.qty }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="price">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Price (Rs)</mat-header-cell>
+        <mat-cell *matCellDef="let book">{{ book.price }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="branch">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Branch</mat-header-cell>
+        <mat-cell *matCellDef="let book">{{ book.branch }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="details">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Actions</mat-header-cell>
+        <mat-cell *matCellDef="let book">
+          <i style="color: red;" class="bi bi-trash3-fill"></i>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+
+    <mat-paginator [pageSizeOptions]="[10, 25, 50]" showFirstLastButtons></mat-paginator>
+  </div>
+</div>
